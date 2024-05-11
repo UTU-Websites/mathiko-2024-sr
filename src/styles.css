@@ -1,0 +1,102 @@
+:root {
+  /*Global Colors*/
+  --primary-color: #ffffff;
+  /*Typography*/
+  --main-font-family: "Prata", serif;
+  --secondary-font-family: "Whisper", cursive;
+  --main-font-size: 14px;
+  --line-height: 1.6;
+  --primary-font-color: #333;
+  /*padding and margin*/
+  --primary-margin: 20px;
+}
+
+
+body {
+  /*Background Settings*/
+  background-image: url("/images/vecteezy_square-pattern_1209782.png");
+  background-color: grey;
+  width: 100%;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+div {
+  /*Website Default*/
+font-family: var(--main-font-family);
+font-size: var(--main-font-size);
+line-height: var(--line-height);
+font-style: normal;
+font-weight: 500;
+color: var(--primary-font-color);
+margin: 0;
+padding: 0;
+}
+
+div .main {
+  margin-top: 50px;
+  padding: 16px;
+  
+}
+footer {
+ text-align: center;
+}
+
+
+/*Navbar*/
+#navbar {
+position: fixed; /* Set the navbar to fixed position */
+top: 0px; /* Position the navbar at the top of the page */
+width: 100%; /* Full width */
+z-index: 9999; /*kep navbar alway on top of content*/
+}
+#nav-active-page {
+font-family: var(--secondary-font-family);
+text-decoration: underline white;
+font-size: 25px;
+line-height: 1;
+background-color: var(--primary-color);
+border-radius: 3px;
+color: var(--primary-font-color);
+}
+
+li #program-section:hover {
+text-decoration: overline underline ;
+cursor: pointer;
+line-height: 0.9;
+}
+
+/*Home page*/
+#container-blur {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.29);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.6px);
+  -webkit-backdrop-filter: blur(6.6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/*Service*/
+/*order of events section*/
+.events-content {
+  text-align: start;
+  padding-left: 0px 6px 3px 6px;
+  font-size: 14px;
+} 
+.event-time {
+  text-align: center;
+  font-size: 14px;
+}
+
+/*Program Schedule*/
+div .main-wake {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+
+}
