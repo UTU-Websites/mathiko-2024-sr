@@ -15,7 +15,6 @@
 body {
   /*Background Settings*/
   background-image: url("/images/vecteezy_square-pattern_1209782.png");
-  background-color: grey;
   width: 100%;
   min-height: 100vh;
   background-position: center;
@@ -98,5 +97,4 @@ div .main-wake {
   justify-content: center;
   padding: 0;
   margin: 0;
-
 }
