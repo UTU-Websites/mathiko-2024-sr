@@ -11,7 +11,6 @@
   --primary-margin: 20px;
 }
 
-
 body {
   /*Background Settings*/
   background-image: url("/images/vecteezy_square-pattern_1209782.png");
@@ -38,8 +37,8 @@ padding: 0;
 div .main {
   margin-top: 50px;
   padding: 16px;
-  
 }
+
 footer {
  text-align: center;
 }
@@ -97,4 +96,13 @@ div .main-wake {
   justify-content: center;
   padding: 0;
   margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+  }
 }
