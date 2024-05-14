@@ -13,7 +13,7 @@
 
 body {
   /*Background Settings*/
-  background-image: url("/images/vecteezy_square-pattern_1209782.png");
+  background-image: url("/images/vecteezy_watercolor-pink-and-purple-leaves-seamless-pattern-floral_16327406.png");
   width: 100%;
   min-height: 100vh;
   background-position: center;
@@ -40,7 +40,12 @@ div .main {
 }
 
 footer {
- text-align: center;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  background: rgba(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+  margin: 25px 0 0 0;
 }
 
 
@@ -67,16 +72,46 @@ cursor: pointer;
 line-height: 0.9;
 }
 
+
+
 /*Home page*/
 #container-blur {
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.29);
+  background: rgba(255, 255, 255);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6.6px);
-  -webkit-backdrop-filter: blur(6.6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+  padding: 25px;
 }
+
+.c-title {
+  font-size: 23px;
+}
+
+.b-name {
+  font-family: "Tangerine", cursive;
+  font-weight: 600;
+  font-size: 45px;
+  font-style: normal;
+  text-decoration: overline;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notice-content {
+  padding-top: 15px;
+}
+
+.sub-title {
+  text-decoration: underline;
+  font-size: 18px;
+  text-align: start;
+  padding-top: 15px;
+}
+
 
 /*Service*/
 /*order of events section*/
@@ -99,10 +134,12 @@ div .main-wake {
 }
 
 @media screen and (max-width: 900px) {
+  #navbar {
+    text-align: center;
+  }
   .row {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
   }
 }
