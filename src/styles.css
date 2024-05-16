@@ -13,7 +13,7 @@
 
 body {
   /*Background Settings*/
-  background-image: url("/images/vecteezy_watercolor-pink-and-purple-leaves-seamless-pattern-floral_16327406.png");
+  background-image: url("/images/hand-drawn-olive-green-background_23-2149832278.jpg");
   width: 100%;
   min-height: 100vh;
   background-position: center;
@@ -35,8 +35,8 @@ padding: 0;
 }
 
 div .main {
-  margin-top: 50px;
-  padding: 16px;
+  margin-top: 55px;
+  padding: 20px;
 }
 
 footer {
@@ -75,7 +75,7 @@ line-height: 0.9;
 
 
 /*Home page*/
-#container-blur {
+#container-design {
   background: rgba(255, 255, 255);
   border-radius: 16px;
   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
@@ -92,6 +92,12 @@ line-height: 0.9;
   font-size: 45px;
   font-style: normal;
   text-decoration: overline;
+}
+
+#b-picture {
+    max-width: 85%;
+    max-height: 85%
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
 }
 
 
@@ -134,6 +140,16 @@ div .main-wake {
 }
 
 @media screen and (max-width: 900px) {
+  body {
+    /*Background Settings*/
+    background-image: url("/images/v-hand-drawn-olive-green-background_23-2149832278.jpg");
+    width: 100%;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
   #navbar {
     text-align: center;
   }
