@@ -154,7 +154,7 @@ div .main-wake {
   margin-top: 20px; */
 
   .over-hide {
-    overflow: hidden;
+    overflow: auto;
   }
   .section{
     position: relative;
