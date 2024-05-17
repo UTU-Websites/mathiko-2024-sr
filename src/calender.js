@@ -1,14 +1,15 @@
-//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday 
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday 
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const events = [
-  { day: 0, date: '2024-05-12', title: "Morning Jog", time: "07:00 AM", location: "Park" },
-  { day: 1, date: '2024-05-13', title: "Team Meeting", time: "10:00 AM", location: "Office" },
-  { day: 2, date: '2024-05-14', title: "Project Deadline", time: "05:00 PM", location: "Online" },
-  { day: 3, date: '2024-05-15', title: "Doctor Appointment", time: "10:00 AM", location: "Clinic" },
-  { day: 1, date: '2024-05-20', title: "Client Meeting", time: "02:00 PM", location: "Client's Office" },
-  { day: 2, date: '2024-05-21', title: "Team Lunch", time: "12:00 PM", location: "Restaurant" },
-  { day: 3, date: '2024-05-22', title: "Family Dinner", time: "08:00 PM", location: "Home" }
+  { day: 5, date: '2024-05-17', title: "Morning Jog", time: "06:00 AM", location: "Park" },
+  { day: 5, date: '2024-05-17', title: "Lunch Date", time: "03:00 PM", location: "Cafe" },
+  { day: 6, date: '2024-05-18', title: "Team Meeting", time: "10:00 AM", location: "Office" },
+  { day: 0, date: '2024-05-19', title: "Project Deadline", time: "05:00 PM", location: "Online" },
+  { day: 2, date: '2024-05-21', title: "Doctor Appointment", time: "10:00 AM", location: "Clinic" },
+  { day: 4, date: '2024-05-23', title: "Client Meeting", time: "02:00 PM", location: "Client's Office" },
+  { day: 6, date: '2024-05-25', title: "Team Lunch", time: "12:00 PM", location: "Restaurant" },
+  { day: 1, date: '2024-05-27', title: "Family Dinner", time: "08:00 PM", location: "Home" }
 ];
 
 function updateCurrentDay() {
@@ -50,6 +51,11 @@ function generateWeekCalendar() {
   for (let i = 0; i < 7; i++) {
     const dayElement = document.createElement("div");
     dayElement.className = "day";
+    dayElement.setAttribute("data-day", i);
+
+    if (i === currentDay) {
+      dayElement.classList.add("active");
+    }
 
     const date = new Date(startOfWeek);
     date.setDate(startOfWeek.getDate() + i);
@@ -68,6 +74,10 @@ function generateWeekCalendar() {
       dayElement.appendChild(eventsList);
     }
 
+    const dotElement = document.createElement("div");
+    dotElement.className = "ei_Dot";
+    dayElement.appendChild(dotElement);
+
     weekCalendar.appendChild(dayElement);
   }
 }
@@ -78,6 +88,8 @@ function updateCalendar() {
   generateWeekCalendar();
 }
 
-updateCalendar(); // Initial update
+// Initial update
+updateCalendar();
 
-setInterval(updateCalendar, 86400000); // 24-hour interval
+// Update every minute (60000 milliseconds)
+setInterval(updateCalendar, 60000);

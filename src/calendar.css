@@ -11,7 +11,7 @@
   --primary-margin: 20px;
 } 
 
-.container{
+.container {
   margin:70px auto;
   width:809px;
   
@@ -50,6 +50,7 @@
   color:#fff;
   border-radius: 5px;
   line-height: 0.8; 
+  margin-bottom: 15px;
 }
 
 #current-day-title {
@@ -66,12 +67,14 @@
 .cl_title {
   font-size: 30px;
   color: var(--primary-color);
+  margin-top: 15px;
 }
 
 #current-day {
-  font-size: 22px;
+  font-size: 16px;
   color: var(--primary-color);
   line-height: 0.8;
+  margin: 15px;
 }
 
 .current-day-style {
@@ -112,27 +115,24 @@ h3 {
   }
 }
 
-.ei_Dot,.ei_Title{
-  display:inline-block;
+.week-calendar .day {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.ei_Dot{
-  border-radius:50%;
-  width:10px;
-  height: 10px;
-  background-color: #A39D9E;
-  box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
-}
-.dot_active{
+.week-calendar .day.active .ei_Dot {
   background-color: #6B6C20;
 }
 
-.ei_Title{
-  margin-left:10px;
-  color:#363b41;
-}
-
-.ei_Copy{
-  font-size:12px;
-  margin-left:27px;
+.ei_Dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #A39D9E;
 }
