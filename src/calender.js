@@ -1,3 +1,4 @@
+//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday 
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const events = [
@@ -5,9 +6,9 @@ const events = [
   { day: 1, date: '2024-05-13', title: "Team Meeting", time: "10:00 AM", location: "Office" },
   { day: 2, date: '2024-05-14', title: "Project Deadline", time: "05:00 PM", location: "Online" },
   { day: 3, date: '2024-05-15', title: "Doctor Appointment", time: "10:00 AM", location: "Clinic" },
-  { day: 4, date: '2024-05-20', title: "Client Meeting", time: "02:00 PM", location: "Client's Office" },
-  { day: 5, date: '2024-05-21', title: "Team Lunch", time: "12:00 PM", location: "Restaurant" },
-  { day: 6, date: '2024-05-22', title: "Family Dinner", time: "08:00 PM", location: "Home" }
+  { day: 1, date: '2024-05-20', title: "Client Meeting", time: "02:00 PM", location: "Client's Office" },
+  { day: 2, date: '2024-05-21', title: "Team Lunch", time: "12:00 PM", location: "Restaurant" },
+  { day: 3, date: '2024-05-22', title: "Family Dinner", time: "08:00 PM", location: "Home" }
 ];
 
 function updateCurrentDay() {
