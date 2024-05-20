@@ -137,7 +137,7 @@ div .main-wake {
   margin: 0;
 }
 
-/*Program Schedule*/
+/*Program Schedule & Tribute*/
 #sub-title-program {
   background: rgba(255, 255, 255);
   border-radius: 16px;
@@ -147,11 +147,11 @@ div .main-wake {
   width: 100%;
 }
 
-.eulogy-topic {
+p .aya-topic {
   text-align: left;
   padding-bottom: 10px;
 }
-.eulogy-topic-title {
+.aya-topic-title {
   padding-bottom: 5px;
   font-family: var(--secondary-font-family);
   font-size: 30px;
@@ -362,6 +362,7 @@ div .main-wake {
   .card-back h4{
     color: #0c1c00;
   }
+  
   
 
 @media screen and (max-width: 900px) {
