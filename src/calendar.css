@@ -11,22 +11,17 @@
   --primary-margin: 20px;
 } 
 
-.container {
-  margin:70px auto;
-  width:809px;
-  
-}
-
 #calendar-design {
   background: rgba(255, 255, 255);
   border-radius: 6px;
   box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
   padding: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-bottom: 20px;
   width:100%;
   font-family: var(--main-font-family);
   color:#363b41;
+  text-align: center;
+  
 }
 
 .calendar_header{
@@ -37,7 +32,7 @@
   color:#A39D9E;
   font-size:20px;
 }
-.calendar_plan{
+.calendar_plan {
   margin:20px 0 40px;
 }
 .cl_plan{
@@ -130,9 +125,7 @@ h3 {
 .ei_Dot {
   position: absolute;
   top: 10px;
-  right: 10px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #A39D9E;
 }

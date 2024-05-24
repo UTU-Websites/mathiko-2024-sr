@@ -34,7 +34,7 @@ function updateCurrentDay() {
   } else {
     // If no events are scheduled for today
     const noEventsMsg = document.createElement("p");
-    noEventsMsg.textContent = "Nothing planned today";
+    noEventsMsg.textContent = "Nothing Planned Today";
     currentDayDiv.appendChild(noEventsMsg);
   }
 }
