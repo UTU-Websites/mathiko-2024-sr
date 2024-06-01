@@ -1,13 +1,17 @@
 .main-album {
-    margin-top: 35px;
-    padding: 20px;
-    align-items: center;
+  margin-top: 35px;
+  padding: 20px;
+}
+
+div .col, .row {
+  padding: 0;
+  margin: 0;
 }
 
 .gallery {
     --g: 6px; /* the gap */
     display: grid;
-    width: 450px; /* the size */
+    width: 100%; /* the size */
     aspect-ratio: 1;
     grid: auto-flow 1fr/repeat(3,1fr);
     gap: var(--g);
@@ -32,28 +36,23 @@
     clip-path: polygon(0 0,calc(50% - var(--g)/4) 0,100% calc(50% + var(--g)/4),100% 100%,0 100%);
   }
 
-
-  @import url(https://fonts.bunny.net/css?family=amita:700);
-
-body {
-    min-height: 100vh;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
+#image-gaps {
+  margin-bottom: 10px;
 }
-
 img {
-    width: 450px;
-    height: 300px;
-    margin: 10px;
-    border: 10px solid #fefae0;
+    width: 100%;
+    height: 100%;
+    margin: 10px 10px 10px 0;
+    border: 5px solid #000000;
+    border-radius: 5px;
     -webkit-filter: sepia(100%);
     filter: sepia(100%);
     transition-duration: 1s;
 }
 
 img:hover {
-    border: 5px solid #fff;
+    border: 5px solid #000000;
+    border-radius: 5px;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -61,11 +60,3 @@ img:hover {
     filter: none;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
- 
