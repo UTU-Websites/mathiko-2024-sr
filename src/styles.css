@@ -414,8 +414,14 @@ ul {
 .card-back p {
   color: #0c1c00;
 }
-  
-  
+
+/*Appreciation*/
+.custom-message-title {
+  font-family: "Tangerine", cursive;
+  font-weight: 600;
+  font-size: 45px;
+  font-style: normal;
+}  
 
 @media screen and (max-width: 900px) {
   body {
