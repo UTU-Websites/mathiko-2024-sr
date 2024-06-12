@@ -423,6 +423,12 @@ ul {
   font-style: normal;
 }  
 
+/*About Us*/
+#about-navbar {
+  background-color: black;
+  color: white;
+}
+
 @media screen and (max-width: 900px) {
   body {
     /*Background Settings*/
