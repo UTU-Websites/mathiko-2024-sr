@@ -443,10 +443,10 @@ ul {
 }
 .fab {
   position: absolute;
-  bottom: -1rem;
-  right: -1rem;
-  width: 4rem;
-  height: 4rem;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   background: blue;
   border-radius: 50%;
   background: #126ee2;
