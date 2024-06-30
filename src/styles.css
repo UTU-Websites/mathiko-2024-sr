@@ -541,7 +541,7 @@ ul {
   position: absolute;
   bottom: 0;
   right: 0;
-  border: 1px solid #;
+  border: 1px solid;
   width: 10rem;
   height: 10rem;
   transition: all 0.3s ease;
