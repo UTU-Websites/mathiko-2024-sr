@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', function() {
+  var spinnerContainer = document.getElementById('spinner-container');
+  var content = document.getElementById('content');
+
+  window.addEventListener('load', function() {
+    spinnerContainer.style.display = 'none';
+    content.style.display = 'block';
+  });
+});
+
 var coll = document.getElementsByClassName("collapsible");
 
 for (var i = 0; i < coll.length; i++) {
@@ -20,4 +30,3 @@ for (var i = 0; i < coll.length; i++) {
     } 
   });
 }
-
