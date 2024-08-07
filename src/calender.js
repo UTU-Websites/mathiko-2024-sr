@@ -1,17 +1,27 @@
+document.addEventListener('DOMContentLoaded', function() {
+  var spinnerContainer = document.getElementById('spinner-container');
+  var content = document.getElementById('content');
+
+  window.addEventListener('load', function() {
+    spinnerContainer.style.display = 'none';
+    content.style.display = 'block';
+  });
+});
+
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 //0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const events = [
-  { day: 4, date: '2024-08-08', title: "Wake Service", time: "05:00 PM", location: "Home of the Breieved" },
-  { day: 5, date: '2024-08-09', title: "Wake Service", time: "05:00 PM", location: "Home of the Breieved" },
-  { day: 6, date: '2024-08-10', title: "Charity Event In Honour of Jane Doe", time: "10:00 AM", location: "Primary School as Venue" },
-  { day: 6, date: '2024-08-10', title: "Wake Service", time: "05:00 PM", location: "Home of the Breieved" },
-  { day: 0, date: '2024-08-11', title: "Wake Service", time: "05:00 PM", location: "Home of the Breieved" },
-  { day: 1, date: '2024-08-12', title: "Wake Service", time: "05:00 PM", location: "Home of the Breieved" },
-  { day: 2, date: '2024-08-13', title: "Wake Service", time: "05:00 PM", location: "Home of the Breieved" },
+  { day: 4, date: '2024-08-08', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 5, date: '2024-08-09', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 6, date: '2024-08-10', title: "Haramebee/Fundraising", time: "10:00 AM", location: "Restaurant Venue" },
+  { day: 6, date: '2024-08-10', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 0, date: '2024-08-11', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 1, date: '2024-08-12', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 2, date: '2024-08-13', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
   { day: 3, date: '2024-08-14', title: "Wake/Vigil Service", time: "4:00 PM", location: "Church" },
-  { day: 3, date: '2024-08-14', title: "Reminder:Last Committee Meeting", time: "6:00 PM", location: "Home of the Breieved" },
-  { day: 5, date: '2024-08-15', title: "FUNERAL SERVICE ", time: "05:00 PM", location: "Home of the Breieved" },
+  { day: 3, date: '2024-08-14', title: "Reminder:Last Committee Meeting", time: "6:00 PM", location: "Home of the Bereaved" },
+  { day: 5, date: '2024-08-15', title: "FUNERAL SERVICE ", time: "05:00 PM", location: "Home of the Bereaved" },
 ];
 
 function updateCurrentDay() {
