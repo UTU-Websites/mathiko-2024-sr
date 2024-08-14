@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentImageIndex;
 
   function openLightbox(index) {
-    lightbox.style.display = 'block';
+    lightbox.classList.add('active');
     lightboxImg.src = images[index].src;
     currentImageIndex = index;
   }
 
   function closeLightbox() {
-    lightbox.style.display = 'none';
+    lightbox.classList.remove('active');
   }
 
   function showNextImage() {
