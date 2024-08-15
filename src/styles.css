@@ -558,6 +558,11 @@ ul {
   color: #0c1c00;
 }
 
+/*Tribute*/
+#more {
+  display:none;
+}
+
 /*Appreciation*/
 .custom-message-title {
   font-family: "Tangerine", cursive;
