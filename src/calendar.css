@@ -68,7 +68,6 @@
 #current-day {
   font-size: 16px;
   color: var(--primary-color);
-  line-height: 0.8;
   margin: 15px;
 }
 
@@ -128,4 +127,27 @@ h3 {
   width: 15px;
   height: 15px;
   border-radius: 0 50%;
+}
+
+#prev-week.has-events::after,
+#next-week.has-events::after {
+  content: '•';
+  color: red; /* Customize the color */
+  font-size: 40px; /* Adjust the size */
+  position: absolute;
+  top: -13px; /* Adjust position */
+  right: -5px; /* Adjust position */
+}
+
+
+.week-navigation {
+  margin-bottom: 14px;
+}
+
+.wk-nav-prev {
+  right: 15px;  
+}
+
+.wk-nav-next {
+  left: 15px;
 }

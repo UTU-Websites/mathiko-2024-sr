@@ -1,3 +1,4 @@
+//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 document.addEventListener('DOMContentLoaded', function() {
   var spinnerContainer = document.getElementById('spinner-container');
   var content = document.getElementById('content');
@@ -8,33 +9,43 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
+}
+
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const events = [
-  { day: 4, date: '2024-08-08', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
-  { day: 5, date: '2024-08-09', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
-  { day: 6, date: '2024-08-10', title: "Haramebee/Fundraising", time: "10:00 AM", location: "Restaurant Venue" },
-  { day: 6, date: '2024-08-10', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
-  { day: 0, date: '2024-08-11', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
-  { day: 1, date: '2024-08-12', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
-  { day: 2, date: '2024-08-13', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
-  { day: 3, date: '2024-08-14', title: "Wake/Vigil Service", time: "4:00 PM", location: "Church" },
-  { day: 3, date: '2024-08-14', title: "Reminder:Last Committee Meeting", time: "6:00 PM", location: "Home of the Bereaved" },
-  { day: 5, date: '2024-08-15', title: "FUNERAL SERVICE ", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 5, date: '2024-09-06', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 6, date: '2024-09-07', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 0, date: '2024-09-08', title: "Haramebee/Fundraising", time: "10:00 AM", location: "Restaurant Venue" },
+  { day: 0, date: '2024-09-08', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 2, date: '2024-09-10', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 3, date: '2024-09-11', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 4, date: '2024-09-12', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
+  { day: 5, date: '2024-09-13', title: "FUNERAL SERVICE", time: "05:00 PM", location: "Home of the Bereaved"}
 ];
+
+let startOfWeek = new Date();
 
 function updateCurrentDay() {
   const today = new Date();
   const currentDayIndex = today.getDay();
+  const currentDate = today.toISOString().split('T')[0]; // Get date in 'YYYY-MM-DD' format
   const month = monthsOfYear[today.getMonth()];
   const currentDayText = `<span class="current-details">~ ${daysOfWeek[currentDayIndex]} ~</span> </br> ${today.getDate()} ${month} ${today.getFullYear()}`;
 
   const currentDayDiv = document.getElementById("current-day");
   currentDayDiv.innerHTML = `<h4 class="current-day-style">${currentDayText}</h4>`; // Display day and date
 
-  // Find events for the current day
-  const currentDayEvents = events.filter(event => event.day === currentDayIndex);
+  // Find events for the current date
+  const currentDayEvents = events.filter(event => event.date === currentDate);
   if (currentDayEvents.length > 0) {
     const eventsList = document.createElement("ul");
     for (const event of currentDayEvents) {
@@ -55,8 +66,7 @@ function generateWeekCalendar() {
   const weekCalendar = document.getElementById("week-calendar");
   const today = new Date();
   const currentDay = today.getDay();
-  const startOfWeek = new Date(today);
-  startOfWeek.setDate(today.getDate() - currentDay);
+  const startOfWeekCopy = new Date(startOfWeek);
 
   weekCalendar.innerHTML = ""; // Clear existing content
 
@@ -65,17 +75,18 @@ function generateWeekCalendar() {
     dayElement.className = "day";
     dayElement.setAttribute("data-day", i);
 
-    if (i === currentDay) {
+    const date = new Date(startOfWeekCopy);
+    date.setDate(startOfWeekCopy.getDate() + i);
+    const formattedDate = date.toISOString().split('T')[0]; // Get date in 'YYYY-MM-DD' format
+
+    if (date.toDateString() === today.toDateString()) {
       dayElement.classList.add("active");
     }
 
-    const date = new Date(startOfWeek);
-    date.setDate(startOfWeek.getDate() + i);
-
-    const dayText = `${daysOfWeek[i]} (${date.getDate()} ${monthsOfYear[date.getMonth()]} ${date.getFullYear()})`;
+    const dayText = `${daysOfWeek[date.getDay()]} (${date.getDate()} ${monthsOfYear[date.getMonth()]} ${date.getFullYear()})`;
     dayElement.textContent = dayText;
 
-    const dayEvents = events.filter(event => event.day === i);
+    const dayEvents = events.filter(event => event.date === formattedDate);
     if (dayEvents.length > 0) {
       const eventsList = document.createElement("ul");
       for (const event of dayEvents) {
@@ -84,6 +95,10 @@ function generateWeekCalendar() {
         eventsList.appendChild(eventItem);
       }
       dayElement.appendChild(eventsList);
+    } else {
+      const noEventsMsg = document.createElement("p");
+      noEventsMsg.textContent = "Nothing Planned";
+      dayElement.appendChild(noEventsMsg);
     }
 
     const dotElement = document.createElement("div");
@@ -92,6 +107,56 @@ function generateWeekCalendar() {
 
     weekCalendar.appendChild(dayElement);
   }
+
+  // Check for events in the previous and next weeks and update buttons
+  updateWeekNavigationButtons();
+}
+
+function navigateWeek(direction) {
+  if (direction === 'prev') {
+    startOfWeek.setDate(startOfWeek.getDate() - 7);
+  } else if (direction === 'next') {
+    startOfWeek.setDate(startOfWeek.getDate() + 7);
+  }
+
+  updateCalendar();
+}
+
+function updateWeekNavigationButtons() {
+  const prevWeekButton = document.getElementById('prev-week');
+  const nextWeekButton = document.getElementById('next-week');
+
+  const prevWeekHasEvents = checkWeekForEvents(-7);
+  const nextWeekHasEvents = checkWeekForEvents(7);
+
+  if (prevWeekHasEvents) {
+    prevWeekButton.classList.add('has-events');
+  } else {
+    prevWeekButton.classList.remove('has-events');
+  }
+
+  if (nextWeekHasEvents) {
+    nextWeekButton.classList.add('has-events');
+  } else {
+    nextWeekButton.classList.remove('has-events');
+  }
+}
+
+function checkWeekForEvents(offset) {
+  const checkDate = new Date(startOfWeek);
+  checkDate.setDate(checkDate.getDate() + offset);
+
+  for (let i = 0; i < 7; i++) {
+    const date = new Date(checkDate);
+    date.setDate(checkDate.getDate() + i);
+    const formattedDate = date.toISOString().split('T')[0];
+
+    const dayEvents = events.filter(event => event.date === formattedDate);
+    if (dayEvents.length > 0) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function updateCalendar() {

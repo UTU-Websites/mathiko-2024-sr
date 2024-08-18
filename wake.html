@@ -69,7 +69,7 @@
 
 <div>
 
-  <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark" id="navbar">
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark" id="navbar">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Jane Doe</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,7 +110,8 @@
           </ul>
         </div>
       </div>
-  </nav>
+</nav>
+
   <div class="main-wake">
     <div class="container" id="calendar-design">
       <div class="row">
@@ -132,11 +133,20 @@
               </div>
             </div>
             <div class="calendar_events">
+              
               <p class="ce_title">Upcoming Wake Events</p>
+
               <div class="week-calendar" id="week-calendar">
                 <!-- Calendar Placeholder -->
               </div>
+
+              <div class="week-navigation" id="week-navigation">
+                <button class="button-17 wk-nav-prev" id="prev-week" onclick="navigateWeek('prev')">Prev Week</button>
+                <button class="button-17 wk-nav-next" id="next-week" onclick="navigateWeek('next')">Next Week</button>
+              </div>              
+
             </div>
+            
               </div>
             </div>
 
@@ -144,14 +154,11 @@
         </div>
 
         
-
         <div class="col">
+          <p class="sehemu-aya" id="sehemu-aya">Funeral Organisers</p>
           <ul class="">
             <li>
-              Funeral Organisers
-            </li>
-            <li>
-             Chairman - Richard A  
+             Chairperson - Richard A  
             </li>
             <li>
               Susan B
@@ -167,7 +174,7 @@
             </li>
           </ul>
           </br>
-          <p id="l-maps">location of wake</p>
+          <p class="sehemu-aya" id="sehemu-aya">Location of Wake</p>
           <div class="google-map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.227414886995!2d36.80633983762539!3d-1.2901672791609178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11870910363f%3A0xbd7deccd3c795907!2sUhuru%20Park!5e0!3m2!1sen!2ske!4v1722878616322!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
@@ -186,6 +193,26 @@
         <li class="">Mpesa Number</li>
         <li class="">Bank Account No.</li>
       </ul>
+    
+    <button type="button" class="btn button-17" id="liveToastBtn">Important Notice</button>
+    <div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+    <div class="toast-header">
+      
+      <strong class="me-auto">Important Notice</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Please be aware that our company is not responsible for any transactions made 
+      between you and the event organizer associated with this link. The numbers provided 
+      for donations or contributions on the linked website have been verified by the event 
+      organizer for your convenience. However, if you are unfamiliar with any of these numbers, 
+      we strongly urge you to verify them before proceeding with any transactions.
+    </br>
+    </br>Thank you for your understanding.
+    </div>
+  </div>
+</div>
     </div>
     </div>
     </div>

@@ -148,6 +148,15 @@ ul {
   height: auto;
 }
 
+.sehemu-aya {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.c-sehemu {
+  margin-top: 14px;
+}
+
 /* CSS */
 .button-17 {
   align-items: center;
