@@ -1,4 +1,3 @@
-//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 document.addEventListener('DOMContentLoaded', function() {
   var spinnerContainer = document.getElementById('spinner-container');
   var content = document.getElementById('content');
@@ -19,8 +18,13 @@ if (toastTrigger) {
   })
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  updateCalendar();
+});
+
 // Event data
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const events = [
   { day: 5, date: '2024-09-06', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
