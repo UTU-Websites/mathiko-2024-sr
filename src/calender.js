@@ -19,6 +19,7 @@ if (toastTrigger) {
   })
 }
 
+// Event data
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const events = [
@@ -37,14 +38,13 @@ let startOfWeek = new Date();
 function updateCurrentDay() {
   const today = new Date();
   const currentDayIndex = today.getDay();
-  const currentDate = today.toISOString().split('T')[0]; // Get date in 'YYYY-MM-DD' format
+  const currentDate = today.toISOString().split('T')[0];
   const month = monthsOfYear[today.getMonth()];
   const currentDayText = `<span class="current-details">~ ${daysOfWeek[currentDayIndex]} ~</span> </br> ${today.getDate()} ${month} ${today.getFullYear()}`;
 
   const currentDayDiv = document.getElementById("current-day");
-  currentDayDiv.innerHTML = `<h4 class="current-day-style">${currentDayText}</h4>`; // Display day and date
+  currentDayDiv.innerHTML = `<h4 class="current-day-style">${currentDayText}</h4>`;
 
-  // Find events for the current date
   const currentDayEvents = events.filter(event => event.date === currentDate);
   if (currentDayEvents.length > 0) {
     const eventsList = document.createElement("ul");
@@ -53,9 +53,8 @@ function updateCurrentDay() {
       eventItem.textContent = `${event.title} at ${event.time} (${event.location})`;
       eventsList.appendChild(eventItem);
     }
-    currentDayDiv.appendChild(eventsList); // Append events to the current day section
+    currentDayDiv.appendChild(eventsList);
   } else {
-    // If no events are scheduled for today
     const noEventsMsg = document.createElement("p");
     noEventsMsg.textContent = "Nothing Planned Today";
     currentDayDiv.appendChild(noEventsMsg);
@@ -68,7 +67,7 @@ function generateWeekCalendar() {
   const currentDay = today.getDay();
   const startOfWeekCopy = new Date(startOfWeek);
 
-  weekCalendar.innerHTML = ""; // Clear existing content
+  weekCalendar.innerHTML = "";
 
   for (let i = 0; i < 7; i++) {
     const dayElement = document.createElement("div");
@@ -77,7 +76,7 @@ function generateWeekCalendar() {
 
     const date = new Date(startOfWeekCopy);
     date.setDate(startOfWeekCopy.getDate() + i);
-    const formattedDate = date.toISOString().split('T')[0]; // Get date in 'YYYY-MM-DD' format
+    const formattedDate = date.toISOString().split('T')[0];
 
     if (date.toDateString() === today.toDateString()) {
       dayElement.classList.add("active");
@@ -107,9 +106,56 @@ function generateWeekCalendar() {
 
     weekCalendar.appendChild(dayElement);
   }
+}
 
-  // Check for events in the previous and next weeks and update buttons
-  updateWeekNavigationButtons();
+function checkForScheduledEvents() {
+  const prevWeekButton = document.getElementById('prev-week');
+  const nextWeekButton = document.getElementById('next-week');
+
+  let hasPreviousWeekEvents = false;
+  let hasNextWeekEvents = false;
+
+  const prevWeekStart = new Date(startOfWeek);
+  prevWeekStart.setDate(startOfWeek.getDate() - 7);
+  const nextWeekStart = new Date(startOfWeek);
+  nextWeekStart.setDate(startOfWeek.getDate() + 7);
+
+  // Check previous week
+  for (let i = 0; i < 7; i++) {
+    const date = new Date(prevWeekStart);
+    date.setDate(prevWeekStart.getDate() + i);
+    const formattedDate = date.toISOString().split('T')[0];
+
+    if (events.some(event => event.date === formattedDate)) {
+      hasPreviousWeekEvents = true;
+      break;
+    }
+  }
+
+  // Check next week
+  for (let i = 0; i < 7; i++) {
+    const date = new Date(nextWeekStart);
+    date.setDate(nextWeekStart.getDate() + i);
+    const formattedDate = date.toISOString().split('T')[0];
+
+    if (events.some(event => event.date === formattedDate)) {
+      hasNextWeekEvents = true;
+      break;
+    }
+  }
+
+  // Update button indicators
+  if (hasPreviousWeekEvents) {
+    prevWeekButton.classList.add('dot-indicator');
+  } else {
+    prevWeekButton.classList.remove('dot-indicator');
+  }
+
+  if (hasNextWeekEvents) {
+    nextWeekButton.classList.add('dot-indicator');
+  } else {
+    nextWeekButton.classList.remove('dot-indicator');
+  }
 }
 
 function navigateWeek(direction) {
@@ -122,51 +168,12 @@ function navigateWeek(direction) {
   updateCalendar();
 }
 
-function updateWeekNavigationButtons() {
-  const prevWeekButton = document.getElementById('prev-week');
-  const nextWeekButton = document.getElementById('next-week');
-
-  const prevWeekHasEvents = checkWeekForEvents(-7);
-  const nextWeekHasEvents = checkWeekForEvents(7);
-
-  if (prevWeekHasEvents) {
-    prevWeekButton.classList.add('has-events');
-  } else {
-    prevWeekButton.classList.remove('has-events');
-  }
-
-  if (nextWeekHasEvents) {
-    nextWeekButton.classList.add('has-events');
-  } else {
-    nextWeekButton.classList.remove('has-events');
-  }
-}
-
-function checkWeekForEvents(offset) {
-  const checkDate = new Date(startOfWeek);
-  checkDate.setDate(checkDate.getDate() + offset);
-
-  for (let i = 0; i < 7; i++) {
-    const date = new Date(checkDate);
-    date.setDate(checkDate.getDate() + i);
-    const formattedDate = date.toISOString().split('T')[0];
-
-    const dayEvents = events.filter(event => event.date === formattedDate);
-    if (dayEvents.length > 0) {
-      return true;
-    }
-  }
-  return false;
-}
-
 function updateCalendar() {
   console.log("Updating calendar...");
   updateCurrentDay();
   generateWeekCalendar();
+  checkForScheduledEvents(); // Check for events in previous and next weeks
 }
 
-// Initial update
-updateCalendar();
-
-// Update every minute (60000 milliseconds)
+// Update calendar every minute (60000 milliseconds)
 setInterval(updateCalendar, 60000);
