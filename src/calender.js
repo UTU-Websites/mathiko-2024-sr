@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
   updateCalendar();
 });
 
+//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 // Event data
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const events = [
   { day: 5, date: '2024-09-06', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
@@ -150,15 +150,15 @@ function checkForScheduledEvents() {
 
   // Update button indicators
   if (hasPreviousWeekEvents) {
-    prevWeekButton.classList.add('dot-indicator');
+    prevWeekButton.classList.add('has-events');
   } else {
-    prevWeekButton.classList.remove('dot-indicator');
+    prevWeekButton.classList.remove('has-events');
   }
 
   if (hasNextWeekEvents) {
-    nextWeekButton.classList.add('dot-indicator');
+    nextWeekButton.classList.add('has-events');
   } else {
-    nextWeekButton.classList.remove('dot-indicator');
+    nextWeekButton.classList.remove('has-events');
   }
 }
 
@@ -178,6 +178,12 @@ function updateCalendar() {
   generateWeekCalendar();
   checkForScheduledEvents(); // Check for events in previous and next weeks
 }
+
+// Initial check on page load
+window.addEventListener('DOMContentLoaded', (event) => {
+  updateCalendar();  // Initialize the calendar
+  checkForScheduledEvents();  // Ensure the dots show correctly on load
+});
 
 // Update calendar every minute (60000 milliseconds)
 setInterval(updateCalendar, 60000);

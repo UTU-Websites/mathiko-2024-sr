@@ -129,25 +129,35 @@ h3 {
   border-radius: 0 50%;
 }
 
-#prev-week.has-events::after,
-#next-week.has-events::after {
+#prev-week.has-events::after {
   content: '•';
-  color: red; /* Customize the color */
+  color: blue; /* Customized color for the previous week */
   font-size: 40px; /* Adjust the size */
   position: absolute;
   top: -13px; /* Adjust position */
   right: -5px; /* Adjust position */
 }
 
+#next-week.has-events::after {
+  content: '•';
+  color: red; /* Red for upcoming events */
+  font-size: 40px; /* Adjust the size */
+  position: absolute;
+  top: -13px; /* Adjust position */
+  right: -5px; /* Adjust position */
+}
 
 .week-navigation {
   margin-bottom: 14px;
+  position: relative;
 }
 
 .wk-nav-prev {
-  right: 15px;  
+  right: 15px;
+  position: relative;
 }
 
 .wk-nav-next {
   left: 15px;
+  position: relative;
 }
