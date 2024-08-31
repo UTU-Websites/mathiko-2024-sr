@@ -18,14 +18,16 @@ if (toastTrigger) {
   })
 }
 
+//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
 document.addEventListener("DOMContentLoaded", function() {
   updateCalendar();
 });
 
-//0 sunday 1 monday 2 tuesday 3 wednesday 4 thursday 5 friday 6 saturday YYYY-MM-DD
-// Event data
+// Days and Months Arrays
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// Event data
 const events = [
   { day: 5, date: '2024-09-06', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
   { day: 6, date: '2024-09-07', title: "Wake Service", time: "05:00 PM", location: "Home of the Bereaved" },
@@ -39,12 +41,13 @@ const events = [
 
 let startOfWeek = new Date();
 
+// Function to update the current day display
 function updateCurrentDay() {
   const today = new Date();
   const currentDayIndex = today.getDay();
   const currentDate = today.toISOString().split('T')[0];
   const month = monthsOfYear[today.getMonth()];
-  const currentDayText = `<span class="current-details">~ ${daysOfWeek[currentDayIndex]} ~</span> </br> ${today.getDate()} ${month} ${today.getFullYear()}`;
+  const currentDayText = `<span class="current-details">~ ${daysOfWeek[currentDayIndex]} ~</span><br>${today.getDate()} ${month} ${today.getFullYear()}`;
 
   const currentDayDiv = document.getElementById("current-day");
   currentDayDiv.innerHTML = `<h4 class="current-day-style">${currentDayText}</h4>`;
@@ -65,10 +68,10 @@ function updateCurrentDay() {
   }
 }
 
+// Function to generate the week calendar
 function generateWeekCalendar() {
   const weekCalendar = document.getElementById("week-calendar");
   const today = new Date();
-  const currentDay = today.getDay();
   const startOfWeekCopy = new Date(startOfWeek);
 
   weekCalendar.innerHTML = "";
@@ -104,14 +107,11 @@ function generateWeekCalendar() {
       dayElement.appendChild(noEventsMsg);
     }
 
-    const dotElement = document.createElement("div");
-    dotElement.className = "ei_Dot";
-    dayElement.appendChild(dotElement);
-
     weekCalendar.appendChild(dayElement);
   }
 }
 
+// Function to check and display event indicators (dots) on navigation buttons
 function checkForScheduledEvents() {
   const prevWeekButton = document.getElementById('prev-week');
   const nextWeekButton = document.getElementById('next-week');
@@ -151,17 +151,20 @@ function checkForScheduledEvents() {
   // Update button indicators
   if (hasPreviousWeekEvents) {
     prevWeekButton.classList.add('has-events');
+    prevWeekButton.style.setProperty('--dot-color', 'blue'); // Custom color for prev button
   } else {
     prevWeekButton.classList.remove('has-events');
   }
 
   if (hasNextWeekEvents) {
     nextWeekButton.classList.add('has-events');
+    nextWeekButton.style.setProperty('--dot-color', 'red'); // Default red color for next button
   } else {
     nextWeekButton.classList.remove('has-events');
   }
 }
 
+// Function to navigate weeks
 function navigateWeek(direction) {
   if (direction === 'prev') {
     startOfWeek.setDate(startOfWeek.getDate() - 7);
@@ -172,15 +175,17 @@ function navigateWeek(direction) {
   updateCalendar();
 }
 
+// Function to update the calendar and event indicators
 function updateCalendar() {
-  console.log("Updating calendar...");
   updateCurrentDay();
   generateWeekCalendar();
-  checkForScheduledEvents(); // Check for events in previous and next weeks
+  checkForScheduledEvents();
 }
 
 // Initial check on page load
 window.addEventListener('DOMContentLoaded', (event) => {
+  // Set startOfWeek to the beginning of the current week (Sunday)
+  startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay());
   updateCalendar();  // Initialize the calendar
   checkForScheduledEvents();  // Ensure the dots show correctly on load
 });
