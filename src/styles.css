@@ -16,7 +16,7 @@
 
 body {
   /*Background Settings*/
-  background-image: url("/images/hand-drawn-olive-green-background_23-2149832278.jpg");
+  background-image: url("/images/utu-web-backgrounds/hand-drawn-olive-green-background_23-2149832278.jpg");
   width: 100%;
   min-height: 100vh;
   background-position: center;
@@ -280,6 +280,23 @@ ul {
   }
 }
 
+/*toast*/
+		.toast-container {
+  	top: 55%;
+		background-color: white;
+		}
+
+		.toast-container img {
+  	width: 250px;
+  	height: auto;
+		}
+
+/*read more full events section*/
+.hidden-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
 
 /*Service*/
 /*order of events section*/
@@ -294,7 +311,7 @@ ul {
 }
 
 /*Wake Schedule*/
-.main-wake {
+div .main-wake {
   margin-top: 45px;
   padding: 25px 20px 20px 20px ;
 }
@@ -754,7 +771,7 @@ ul {
 @media screen and (max-width: 900px) {
   body {
     /*Background Settings*/
-    background-image: url("/images/v-hand-drawn-olive-green-background_23-2149832278.jpg");
+    background-image: url("/images/utu-web-backgrounds/v-hand-drawn-olive-green-background_23-2149832278.jpg");
     width: 100%;
     min-height: 100vh;
     background-position: center;

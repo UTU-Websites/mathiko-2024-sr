@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var coll = document.getElementsByClassName("collapsible");
 
@@ -52,5 +62,23 @@ document.addEventListener("DOMContentLoaded", function() {
         moreText.style.display = "inline";
       }
     });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var toggleMapButton = document.querySelector(".toggleMap");
+  var mapSection = document.querySelector("#collapseWidthExample");
+
+  toggleMapButton.addEventListener("click", function() {
+    if (mapSection.style.maxHeight === "0px" || mapSection.style.maxHeight === "") {
+      // Expand the section
+      mapSection.style.maxHeight = mapSection.scrollHeight + "px";
+      this.innerHTML = '<img src="/images/google-map-icon.png" class="map-icon"> Hide Location Maps';
+    } else {
+      // Collapse the section
+      mapSection.style.maxHeight = "0";
+      this.innerHTML = '<img src="/images/google-map-icon.png" class="map-icon"> Other Location Maps';
+    }
   });
 });
