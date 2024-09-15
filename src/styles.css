@@ -283,7 +283,6 @@ ul {
 /*toast*/
 		.toast-container {
   	top: 55%;
-		background-color: white;
 		}
 
 		.toast-container img {
@@ -291,6 +290,9 @@ ul {
   	height: auto;
 		}
 
+    .toast-body {
+      background-color: white;
+    }
 /*read more full events section*/
 .hidden-section {
   max-height: 0;
